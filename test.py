@@ -254,7 +254,7 @@ def test_syllable_count():
     textstat.set_lang("en_US")
     count = textstat.syllable_count(long_test)
 
-    assert count == 519
+    assert count == 547  # 519
 
 
 def test_sentence_count():
@@ -282,7 +282,7 @@ def test_avg_syllables_per_word():
     textstat.set_lang("en_US")
     avg = textstat.avg_syllables_per_word(long_test)
 
-    assert avg == 1.4
+    assert avg == 1.5 # 1.4
 
 
 def test_avg_letter_per_word():
@@ -303,58 +303,58 @@ def test_flesch_reading_ease():
     textstat.set_lang("en_US")
     score = textstat.flesch_reading_ease(long_test)
 
-    assert score == 66.17
+    assert score == 57.71  # 66.17
 
     textstat.set_lang("de_DE")
     score = textstat.flesch_reading_ease(long_test)
 
-    assert score == 64.5
+    assert score == 70.35  # 64.5
 
     textstat.set_lang("es_ES")
     score = textstat.flesch_reading_ease(long_test)
 
-    assert score == 86.76
+    assert score == 96.3  # 86.76
 
     textstat.set_lang("fr_FR")
     score = textstat.flesch_reading_ease(long_test)
 
-    assert score == 81.73
+    assert score == 74.37  # 81.73
 
     textstat.set_lang("it_IT")
     score = textstat.flesch_reading_ease(long_test)
 
-    assert score == 91.57
+    assert score == 100.33  # 91.57
 
     textstat.set_lang("nl_NL")
     score = textstat.flesch_reading_ease(long_test)
 
-    assert score == 63.27
+    assert score == 70.97  # 63.27
 
     textstat.set_lang("ru_RU")
     score = textstat.flesch_reading_ease(long_test)
 
-    assert score == 118.27
+    assert score == 88.22  # 118.27
 
 
 def test_flesch_kincaid_grade():
     textstat.set_lang("en_US")
     score = textstat.flesch_kincaid_grade(long_test)
 
-    assert score == 9.5
+    assert score == 10.7 # 9.5
 
 
 def test_polysyllabcount():
     textstat.set_lang("en_US")
     count = textstat.polysyllabcount(long_test)
 
-    assert count == 32
+    assert count == 38 # 32
 
 
 def test_smog_index():
     textstat.set_lang("en_US")
     index = textstat.smog_index(long_test)
 
-    assert index == 11.0
+    assert index == 11.7 # 11.0
 
 
 def test_coleman_liau_index():
@@ -375,7 +375,7 @@ def test_linsear_write_formula():
     textstat.set_lang("en_US")
     result = textstat.linsear_write_formula(long_test)
 
-    assert result == 14.5
+    assert result == 15.25 # 14.5
 
     result = textstat.linsear_write_formula(empty_str)
 
@@ -386,7 +386,7 @@ def test_difficult_words():
     textstat.set_lang("en_US")
     result = textstat.difficult_words(long_test)
 
-    assert result == 49
+    assert result == 54 # 49
 
 
 def test_difficult_words_list():
@@ -425,13 +425,13 @@ def test_gunning_fog():
     textstat.set_lang("en_US")
     score = textstat.gunning_fog(long_test)
 
-    assert score == 10.7
+    assert score == 11.23  # 10.7
 
     # FOG-PL
     textstat.set_lang("pl_PL")
     score_pl = textstat.gunning_fog(long_test)
 
-    assert score_pl == 9.84
+    assert score_pl == 9.94  # 9.84
 
 
 def test_lix():
@@ -456,7 +456,7 @@ def test_text_standard():
     textstat.set_lang("en_US")
     standard = textstat.text_standard(long_test)
 
-    assert standard == "10th and 11th grade"
+    assert standard == "11th and 12th grade" # "10th and 11th grade"
 
     standard = textstat.text_standard(short_test)
 
@@ -531,7 +531,7 @@ def test_dale_chall_readability_score_v2():
     textstat.set_lang("en_US")
     score = textstat.dale_chall_readability_score_v2(long_test)
 
-    assert score == 6.8
+    assert score == 7.01 # 6.8
 
 
 def test_fernandez_huerta():
@@ -549,7 +549,7 @@ def test_szigriszt_pazos():
     textstat.set_lang("es")
     score = textstat.szigriszt_pazos(long_spanish_text)
 
-    assert score == 62.16
+    assert score == 61.39 # 62.16
 
     score = textstat.szigriszt_pazos(empty_str)
 
@@ -584,14 +584,14 @@ def test_wienersachtext_formula():
     Köpfchen unters Wasser, Schwänzchen in die Höh.'
     wstf = textstat.wiener_sachtextformel(sample_text, variant=1)
 
-    assert wstf == 3.8
+    assert wstf == 3.1  # 3.8
 
     sample_text = 'Alle Parteien widmen dem Thema rein quantitativ \
     betrachtet nennenswerte Aufmerksamkeit, die Grünen wenig überraschend \
     am meisten.'
     wstf = textstat.wiener_sachtextformel(sample_text, variant=1)
 
-    assert wstf == 13.9
+    assert wstf == 12.5  # 13.9
 
 
 def test_gulpease_index():
@@ -606,7 +606,7 @@ def test_default_lang_configs():
     textstat.set_lang("en_GB")
     score = textstat.flesch_reading_ease(long_test)
 
-    assert score == 66.17
+    assert score == 57.71 # 66.17
 
 
 def test_osman():
@@ -625,7 +625,7 @@ def test_disabling_rounding():
 
     textstat.set_rounding(True)
 
-    assert index == 5.057207463630613
+    assert index == 5.172798861480075 # 5.057207463630613
 
 
 def test_changing_rounding_points():
@@ -636,7 +636,7 @@ def test_changing_rounding_points():
 
     textstat.set_rounding(True)
 
-    assert index == 5.05721
+    assert index == 5.1728 # 5.05721
 
 
 def test_instanced_textstat_rounding():
@@ -649,11 +649,11 @@ def test_instanced_textstat_rounding():
 
     my_not_rounded_index = my_textstat.spache_readability(long_test)
 
-    assert my_not_rounded_index == 5.057207463630613
+    assert my_not_rounded_index == 5.172798861480075  # 5.057207463630613
 
     default_rounded_index = textstat.spache_readability(long_test)
 
-    assert default_rounded_index == 5.06
+    assert default_rounded_index == 5.17  # 5.06
 
 
 def test_mcalpine_eflaw():
@@ -762,10 +762,11 @@ def test_sentence_count_hungarian():
 
 def test_flesch_reading_ease_hungarian():
     # Arrange
+
     textstat.set_lang("hu_HU")
     expected_easy = 89.09
-    expected_hard = 53.0
-    expected_hard_academic = 22.02
+    expected_hard = 76.4  # 53.0
+    expected_hard_academic = 57.12  # 22.02
 
     # Act
     actual_easy = textstat.flesch_reading_ease(easy_hungarian_text2)
@@ -784,8 +785,8 @@ def test_smog_index_hungarian():
     # Arrange
     textstat.set_lang("hu_HU")
     expected_easy = 0
-    expected_hard = 17.9
-    expected_hard_academic = 21.9
+    expected_hard = 14.1  # 17.9
+    expected_hard_academic = 18.8  # 21.9
 
     # Act
     actual_easy = textstat.smog_index(easy_hungarian_text)
@@ -802,8 +803,8 @@ def test_gunning_fog_hungarian():
     # Arrange
     textstat.set_lang("hu_HU")
     expected_easy = 2.6
-    expected_hard = 9.71
-    expected_hard_academic = 14.41
+    expected_hard = 8.3  # 9.71
+    expected_hard_academic = 9.57  # 14.41
 
     # Act
     actual_easy = textstat.gunning_fog(easy_hungarian_text2)

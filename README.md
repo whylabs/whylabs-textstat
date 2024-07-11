@@ -1,8 +1,12 @@
-# Textstat
+# Whylabs fork of textstat
 
-[![PyPI](https://img.shields.io/pypi/v/textstat.svg)](https://pypi.org/project/textstat/)
-[![Build Status](https://github.com/shivam5992/textstat/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/shivam5992/textstat/actions/workflows/test.yml)
-[![Downloads](https://img.shields.io/badge/dynamic/json.svg?url=https://pypistats.org/api/packages/textstat/recent?mirrors=false&label=downloads&query=$.data.last_month&suffix=/month)](https://pypistats.org/packages/textstat)
+for main repo see: https://github.com/textstat/textstat
+
+Modifications from main repo:
+* replace the Pyphen dependency with syllapy.
+
+[![PyPI](https://img.shields.io/pypi/v/textstat.svg)](https://pypi.org/project/whylabs-textstat/)
+[![Downloads](https://img.shields.io/badge/dynamic/json.svg?url=https://pypistats.org/api/packages/whylabs-textstat/recent?mirrors=false&label=downloads&query=$.data.last_month&suffix=/month)](https://pypistats.org/packages/whylabs-textstat)
 
 **Textstat is an easy to use library to calculate statistics from text. It helps determine readability, complexity, and grade level.**
 
@@ -418,7 +422,7 @@ textstat.syllable_count(text)
 
 Returns the number of syllables present in the given text.
 
-Uses the Python module [Pyphen](https://github.com/Kozea/Pyphen)
+Uses the Python module [syllapy](https://github.com/mholtzscher/syllapy)
 for syllable calculation.
 
 #### Lexicon Count
